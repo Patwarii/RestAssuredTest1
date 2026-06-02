@@ -1,18 +1,20 @@
 package tests;
 
 import static io.restassured.RestAssured.*;
-import com.aventstack.extentreports.*;
-import reports.ExtentManager;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 import base.BaseTest;
 import endpoints.Routes;
 import io.restassured.response.Response;
-import payload.AuthPayload;
+import payload.SohItemPayLoad;
+import reports.ExtentManager;
 
-public class AuthenticationTest extends BaseTest {
+public class SohItem extends BaseTest {
 
 	ExtentReports extent = ExtentManager.getReport();
 
@@ -20,9 +22,8 @@ public class AuthenticationTest extends BaseTest {
 
 	@Test
 
-	public void authenticateUser() {
-
-		test = extent.createTest("Authenticate API Test");
+	public void sohOfItemDetails() {
+		test = extent.createTest("SOH API Test");
 
 		Response response =
 
@@ -32,17 +33,15 @@ public class AuthenticationTest extends BaseTest {
 
 						.header("Content-Type", "application/json")
 
-						.body(AuthPayload.requestBody())
+						.body(SohItemPayLoad.requestBody())
 
 						.when()
 
-						.post(Routes.AUTHENTICATE)
+						.post(Routes.SOH)
 
 						.then()
 
-						.log().all()
-
-						.extract().response();
+						.log().all().extract().response();
 
 		test.pass("API Executed Successfully");
 

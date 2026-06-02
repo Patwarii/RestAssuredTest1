@@ -7,8 +7,11 @@
 
 <classes>
 
-<class name=
-"tests.AuthenticationTest"/>
+<class name="tests.AuthenticationTest" />
+
+<class name="tests.SohItem"/>
+
+<class name="tests.SohOptions"/>
 
 </classes>
 

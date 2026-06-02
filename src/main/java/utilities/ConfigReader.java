@@ -5,34 +5,30 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-static Properties prop = new Properties();
+	static Properties prop = new Properties();
 
-static {
+	static {
 
-try {
+		try {
 
-InputStream input =
-ConfigReader.class.getClassLoader()
-.getResourceAsStream(
-"config.properties");
+			InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("config.properties");
 
-prop.load(input);
+			prop.load(input);
 
-}
+		}
 
-catch(Exception e){
+		catch (Exception e) {
 
-e.printStackTrace();
+			e.printStackTrace();
 
-}
+		}
 
-}
+	}
 
-public static String getProperty(
-String key){
+	public static String getProperty(String key) {
 
-return prop.getProperty(key);
+		return prop.getProperty(key);
 
-}
+	}
 
 }
